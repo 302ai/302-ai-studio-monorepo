@@ -39,6 +39,9 @@ The project uses Turbo with dependency-aware task orchestration:
 
 ### Development Workflow
 ```bash
+# First time setup (recommended)
+pnpm setup
+
 # Start all packages in development mode
 pnpm dev
 
@@ -47,6 +50,28 @@ pnpm --filter @302-ai-studio/electron-app dev
 pnpm --filter @302-ai-studio/shared dev
 pnpm --filter @302-ai-studio/ui dev
 ```
+
+### First Time Setup & Troubleshooting
+
+If you encounter "Electron uninstall" errors:
+
+1. **Use the setup command** (recommended):
+   ```bash
+   pnpm setup
+   ```
+
+2. **Or manually rebuild Electron**:
+   ```bash
+   pnpm rebuild electron
+   ```
+
+3. **For persistent issues**, clear and reinstall:
+   ```bash
+   rm -rf node_modules
+   pnpm install
+   ```
+
+The project includes automatic Electron rebuilding via `postinstall` script, but some environments may need manual intervention.
 
 ### Build Commands
 ```bash

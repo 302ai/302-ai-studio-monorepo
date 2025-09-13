@@ -7,6 +7,11 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "build:svelte": "node scripts/build-svelte.js",
+    "build:electron": "pnpm build:svelte && pnpm --filter @302-ai-studio/electron-app build",
+    "build:electron:mac": "pnpm build:svelte && pnpm --filter @302-ai-studio/electron-app build:mac",
+    "build:electron:win": "pnpm build:svelte && pnpm --filter @302-ai-studio/electron-app build:win",
+    "build:electron:linux": "pnpm build:svelte && pnpm --filter @302-ai-studio/electron-app build:linux",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
     "test": "turbo run test",

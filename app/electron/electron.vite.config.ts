@@ -1,6 +1,5 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 export default defineConfig({
   main: {
@@ -8,7 +7,7 @@ export default defineConfig({
     build: {
       rollupOptions: {
         input: {
-          index: resolve(__dirname, 'src/main/index.ts')
+          index: resolve('./src/main/index.ts')
         }
       }
     }
@@ -23,21 +22,4 @@ export default defineConfig({
       }
     }
   },
-  renderer: {
-    root: './src/renderer',
-    build: {
-      rollupOptions: {
-        input: {
-          index: resolve(__dirname, 'src/renderer/index.html')
-        }
-      }
-    },
-    plugins: [svelte()],
-    resolve: {
-      alias: {
-        '@302-ai-studio/shared': resolve(__dirname, '../../packages/shared/src'),
-        '@302-ai-studio/ui': resolve(__dirname, '../../packages/ui/src/lib')
-      }
-    }
-  }
 })

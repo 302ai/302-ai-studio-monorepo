@@ -6,7 +6,8 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "electron-vite dev",
+		"dev": "node scripts/wait-and-start.js",
+		"dev:direct": "electron-vite dev",
 		"build": "electron-vite build",
 		"preview": "electron-vite preview",
 		"build:win": "pnpm build && electron-builder --win",
@@ -24,7 +25,8 @@
 		"electron-builder": "^26.0.12",
 		"electron-vite": "^4.0.0",
 		"typescript": "^5.9.2",
-		"vite": "^7.1.5"
+		"vite": "^7.1.5",
+		"wait-on": "^8.0.5"
 	},
 	"dependencies": {
 		"@302-ai-studio/shared": "workspace:*"

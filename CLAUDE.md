@@ -58,6 +58,14 @@ pnpm --filter @302-ai-studio/svelte-app dev
 
 ### First Time Setup & Troubleshooting
 
+**Development Server Connection Issues**
+
+If you encounter `ERR_CONNECTION_REFUSED` errors when starting development:
+
+The project uses a modern wait-on script that eliminates race condition issues by ensuring SvelteKit server is ready before starting Electron. This should resolve connection issues automatically.
+
+**Electron Installation Issues**
+
 If you encounter "Electron uninstall" errors:
 
 1. **Use the setup command** (recommended):
@@ -143,6 +151,7 @@ pnpm add <package> --filter @302-ai-studio/electron-app
 - `turbo.json` - Turbo task configuration with dependency graph
 - `pnpm-workspace.yaml` - pnpm workspace package discovery
 - `app/electron/electron.vite.config.ts` - Electron-vite configuration with path aliases
+- `app/electron/scripts/wait-and-start.js` - Modern wait script using wait-on library for development startup
 - `scripts/build-svelte.js` - Custom SvelteKit→Electron integration script
 - `.pre-commit-config.yaml` - Comprehensive pre-commit hooks (prettier, eslint, svelte-check, conventional commits)
 - `eslint.config.js` - Flat ESLint config for TypeScript, Svelte, and Electron
@@ -188,9 +197,38 @@ The project uses shadcn/ui for Svelte:
 - Clean commands remove build artifacts (`dist/`, `out/`, `.svelte-kit/`, `build/`)
 - Testing infrastructure is not yet configured (placeholder scripts exist)
 
+## Development Race Condition Solution
+
+The project solves Electron + SvelteKit timing issues using a modern wait-on script approach:
+
+### Problem Solved:
+**Race Condition**: When running `pnpm dev`, Electron would start before SvelteKit dev server was ready, causing `ERR_CONNECTION_REFUSED` errors.
+
+### Solution Implementation:
+The Electron package uses `app/electron/scripts/wait-and-start.js` which:
+
+1. **Waits for SvelteKit**: Uses the modern `wait-on` library to wait for `http://localhost:5173`
+2. **HTTP Health Check**: Confirms SvelteKit server responds with HTTP 200 before proceeding
+3. **Graceful Timeout**: Falls back gracefully if server doesn't start within 30 seconds
+4. **Modern Reliability**: Replaces primitive timeout approaches with battle-tested `wait-on` library
+
+### Technical Details:
+- **Fixed Port**: SvelteKit consistently uses port 5173 (simple, reliable approach)
+- **Wait Configuration**: 1-second interval checks with 30-second timeout
+- **Fallback Strategy**: Starts Electron even if wait fails (robust development experience)
+- **Process Management**: Proper signal handling and cleanup on Ctrl+C
+
+### Benefits:
+- ✅ **Eliminates ERR_CONNECTION_REFUSED errors** - Race condition completely resolved
+- ✅ **Uses modern wait-on library** - Battle-tested instead of primitive for loops
+- ✅ **Maintains simple fixed port approach** - No complex dynamic port discovery
+- ✅ **Graceful error handling** - Proper timeout and fallback behavior
+- ✅ **Clean process management** - Proper cleanup on shutdown
+
 ## Important Notes
 
 - The custom `scripts/build-svelte.js` handles the critical SvelteKit→Electron file copying
 - SvelteKit development server is specifically configured for port 5173
 - Pre-commit hooks include comprehensive checks: svelte-check, prettier, eslint, and conventional commits
 - Paraglide i18n code generation should not be committed (excluded in .gitignore)
+- **Race condition solution implemented** - `wait-on` script eliminates ERR_CONNECTION_REFUSED errors

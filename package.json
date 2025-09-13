@@ -52,6 +52,9 @@
 		"onlyBuiltDependencies": [
 			"esbuild",
 			"electron"
-		]
+		],
+		"patchedDependencies": {
+			"@sveltejs/kit@2.39.1": "patches/@sveltejs__kit@2.39.1.patch"
+		}
 	}
 }

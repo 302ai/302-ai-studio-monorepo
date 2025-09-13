@@ -23,9 +23,7 @@
     "baseUrl": ".",
     "paths": {
       "@302-ai-studio/shared": ["packages/shared/src"],
-      "@302-ai-studio/shared/*": ["packages/shared/src/*"],
-      "@302-ai-studio/ui": ["packages/ui/src/lib"],
-      "@302-ai-studio/ui/*": ["packages/ui/src/lib/*"]
+      "@302-ai-studio/shared/*": ["packages/shared/src/*"]
     }
   },
   "include": [

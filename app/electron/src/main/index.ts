@@ -12,12 +12,18 @@ function createWindow(): void {
 			preload: join(__dirname, '../preload/index.mjs'),
 			sandbox: false,
 			contextIsolation: true,
-			nodeIntegration: false
+			nodeIntegration: false,
+			devTools: true // Enable DevTools in production for debugging
 		}
 	})
 
 	mainWindow.on('ready-to-show', () => {
 		mainWindow.show()
+	})
+
+	// Add context menu for right-click to open DevTools
+	mainWindow.webContents.on('context-menu', () => {
+		mainWindow.webContents.toggleDevTools()
 	})
 
 	mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -28,7 +34,11 @@ function createWindow(): void {
 	if (is.dev) {
 		mainWindow.loadURL('http://localhost:5173')
 	} else {
-		mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+		// In production, files are packaged in the asar and located relative to the app root
+		// Use app.getAppPath() to get the correct base path for packaged apps
+		const appPath = app.getAppPath()
+		const rendererPath = join(appPath, 'out', 'renderer', 'index.html')
+		mainWindow.loadFile(rendererPath)
 	}
 }
 

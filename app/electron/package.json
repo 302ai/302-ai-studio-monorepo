@@ -38,11 +38,12 @@
 			"output": "dist/build"
 		},
 		"files": [
-			"dist/**/*",
+			"out/**/*",
 			"node_modules/**/*"
 		],
 		"mac": {
-			"icon": "build/icon.icns"
+			"icon": "build/icon.icns",
+			"identity": null
 		},
 		"win": {
 			"icon": "build/icon.ico"

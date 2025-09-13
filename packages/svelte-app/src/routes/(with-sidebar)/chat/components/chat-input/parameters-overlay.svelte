@@ -37,7 +37,11 @@
 	}
 
 	function handleDialogKeydown(event: KeyboardEvent) {
-		// Prevent keyboard events from bubbling up to overlay
+		// Allow Escape key to bubble up for closing the overlay
+		if (event.key === "Escape") {
+			return;
+		}
+		// Prevent other keyboard events from bubbling up to overlay
 		event.stopPropagation();
 	}
 

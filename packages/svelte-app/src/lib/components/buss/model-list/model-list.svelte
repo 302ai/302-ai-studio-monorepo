@@ -41,22 +41,22 @@
 	<div class="flex h-full w-full flex-col overflow-hidden rounded-xl">
 		<!-- 表格头部 -->
 		<div
-			class="text-muted-fg grid h-10 w-full flex-shrink-0 bg-muted"
+			class="text-muted-fg bg-muted grid h-10 w-full flex-shrink-0"
 			style="grid-template-columns: 1.3fr 0.7fr 1.2fr 0.8fr;"
 		>
-			<div class="flex h-full items-center pl-4 outline-hidden">
+			<div class="outline-hidden flex h-full items-center pl-4">
 				<div class="truncate">{m.text_models_column_name()}</div>
 			</div>
 
-			<div class="flex h-full items-center outline-hidden">
+			<div class="outline-hidden flex h-full items-center">
 				<div class="truncate">{m.text_models_column_type()}</div>
 			</div>
 
-			<div class="flex h-full items-center outline-hidden">
+			<div class="outline-hidden flex h-full items-center">
 				<div class="truncate">{m.text_models_column_capability()}</div>
 			</div>
 
-			<div class="flex h-full items-center justify-center outline-hidden">
+			<div class="outline-hidden flex h-full items-center justify-center">
 				<div class="truncate">{m.text_models_column_action()}</div>
 			</div>
 		</div>

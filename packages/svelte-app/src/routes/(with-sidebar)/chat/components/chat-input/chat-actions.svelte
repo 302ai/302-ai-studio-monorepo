@@ -86,7 +86,7 @@
 	<AttachmentUploader />
 {/snippet}
 
-<div class="flex h-chat-bar items-center gap-chat-bar-gap">
+<div class="h-chat-bar gap-chat-bar-gap flex items-center">
 	{@render actionUploadAttachment()}
 	{@render actionEnableThinking()}
 	{@render actionEnableOnlineSearch()}

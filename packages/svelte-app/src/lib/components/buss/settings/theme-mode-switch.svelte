@@ -66,11 +66,11 @@
 
 <div
 	bind:this={containerElement}
-	class="relative flex h-seg items-center rounded-seg-button-container bg-settings-item-bg px-seg-x"
+	class="h-seg rounded-seg-button-container bg-settings-item-bg px-seg-x relative flex items-center"
 >
 	{#if thumbStyle.left}
 		<div
-			class="absolute z-1 h-seg-thumb rounded-md bg-accent !transition-all duration-400 ease-in-out"
+			class="z-1 h-seg-thumb bg-accent duration-400 absolute rounded-md !transition-all ease-in-out"
 			style="left: {thumbStyle.left}; width: {thumbStyle.width};"
 		></div>
 	{/if}
@@ -81,7 +81,7 @@
 			<button
 				bind:this={itemElements[index]}
 				class={cn(
-					"relative z-2 flex h-seg-thumb flex-1 cursor-pointer items-center justify-center gap-1 rounded-md text-sm",
+					"z-2 h-seg-thumb relative flex flex-1 cursor-pointer items-center justify-center gap-1 rounded-md text-sm",
 					isActive ? "text-accent-foreground" : "z-1 text-secondary-foreground hover:bg-tab-hover",
 				)}
 				type="button"

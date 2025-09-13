@@ -36,7 +36,7 @@
 </script>
 
 <ButtonWithTooltip
-	class="relative text-muted-foreground hover:!bg-chat-action-hover"
+	class="text-muted-foreground hover:!bg-chat-action-hover relative"
 	tooltip={m.title_copy()}
 	onclick={handleCopy}
 	tooltipSide={position}

@@ -25,7 +25,7 @@
 {#if collapsible === "none"}
 	<div
 		class={cn(
-			"flex h-full w-(--sidebar-width) flex-col bg-sidebar text-sidebar-foreground",
+			"w-(--sidebar-width) bg-sidebar text-sidebar-foreground flex h-full flex-col",
 			className,
 		)}
 		bind:this={ref}
@@ -39,7 +39,7 @@
 			data-sidebar="sidebar"
 			data-slot="sidebar"
 			data-mobile="true"
-			class="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+			class="w-(--sidebar-width) bg-sidebar text-sidebar-foreground p-0 [&>button]:hidden"
 			style="--sidebar-width: {SIDEBAR_WIDTH_MOBILE};"
 			{side}
 		>
@@ -55,7 +55,7 @@
 {:else}
 	<div
 		bind:this={ref}
-		class="group peer hidden text-sidebar-foreground md:block"
+		class="text-sidebar-foreground group peer hidden md:block"
 		data-state={sidebar.state}
 		data-collapsible={sidebar.state === "collapsed" ? collapsible : ""}
 		data-variant={variant}
@@ -66,7 +66,7 @@
 		<div
 			data-slot="sidebar-gap"
 			class={cn(
-				"relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
+				"w-(--sidebar-width) relative bg-transparent transition-[width] duration-200 ease-linear",
 				"group-data-[collapsible=offcanvas]:w-0",
 				"group-data-[side=right]:rotate-180",
 				variant === "floating" || variant === "inset"
@@ -77,7 +77,7 @@
 		<div
 			data-slot="sidebar-container"
 			class={cn(
-				"fixed z-10 hidden w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex",
+				"w-(--sidebar-width) fixed z-10 hidden transition-[left,right,width] duration-200 ease-linear md:flex",
 				!className?.includes("top-") &&
 					!className?.includes("bottom-") &&
 					!className?.includes("h-")
@@ -99,7 +99,7 @@
 			<div
 				data-sidebar="sidebar"
 				data-slot="sidebar-inner"
-				class="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow-sm"
+				class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
 			>
 				{@render children?.()}
 			</div>

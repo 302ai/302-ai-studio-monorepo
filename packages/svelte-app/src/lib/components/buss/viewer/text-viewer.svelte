@@ -34,11 +34,11 @@
 		<ScrollArea.Root class="h-full w-full">
 			<ScrollArea.Scrollbar
 				orientation="vertical"
-				class="flex touch-none p-0.5 transition-colors duration-100 select-none"
+				class="flex touch-none select-none p-0.5 transition-colors duration-100"
 			></ScrollArea.Scrollbar>
 
 			<pre
-				class="cursor-text px-4 py-2 font-mono text-sm leading-relaxed break-words whitespace-pre-wrap text-foreground select-text">{content}</pre>
+				class="text-foreground cursor-text select-text whitespace-pre-wrap break-words px-4 py-2 font-mono text-sm leading-relaxed">{content}</pre>
 		</ScrollArea.Root>
 	{:else}
 		<ErrorState />

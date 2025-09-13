@@ -33,17 +33,17 @@
 	<ScrollArea.Root class="h-full w-full">
 		<ScrollArea.Scrollbar
 			orientation="vertical"
-			class="flex touch-none p-0.5 transition-colors duration-100 select-none"
+			class="flex touch-none select-none p-0.5 transition-colors duration-100"
 		></ScrollArea.Scrollbar>
 
 		<div class="p-4">
 			{#if fileName}
-				<div class="mb-4 border-b pb-2 text-sm font-medium text-muted-foreground">
+				<div class="text-muted-foreground mb-4 border-b pb-2 text-sm font-medium">
 					{fileName}
 				</div>
 			{/if}
 			<pre
-				class="cursor-text font-mono text-sm leading-relaxed break-words whitespace-pre-wrap text-foreground select-text">{content}</pre>
+				class="text-foreground cursor-text select-text whitespace-pre-wrap break-words font-mono text-sm leading-relaxed">{content}</pre>
 		</div>
 	</ScrollArea.Root>
 </ViewerBase>

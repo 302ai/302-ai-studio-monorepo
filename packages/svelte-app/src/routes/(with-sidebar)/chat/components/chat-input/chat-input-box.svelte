@@ -40,13 +40,13 @@
 	}
 </script>
 
-<div class="w-full max-w-chat-max-w" data-layoutid="chat-input-container">
+<div class="max-w-chat-max-w w-full" data-layoutid="chat-input-container">
 	<AttachmentThumbnailBar />
 	<div
 		class={cn(
 			"transition-[color,box-shadow]",
-			"flex max-h-chat-max-h min-h-chat-min-h w-full flex-col justify-between rounded-chat border p-chat-pad pb-1.5",
-			"focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50 focus-within:outline-hidden",
+			"max-h-chat-max-h min-h-chat-min-h rounded-chat p-chat-pad flex w-full flex-col justify-between border pb-1.5",
+			"focus-within:border-ring focus-within:ring-ring/50 focus-within:outline-hidden focus-within:ring-[3px]",
 			"bg-input",
 		)}
 		data-layoutid="chat-input-box"
@@ -54,7 +54,7 @@
 		<Textarea
 			class={cn(
 				"w-full resize-none p-0",
-				"border-none shadow-none focus-within:ring-0 focus-within:outline-hidden focus-visible:ring-0",
+				"focus-within:outline-hidden border-none shadow-none focus-within:ring-0 focus-visible:ring-0",
 			)}
 			bind:value={chatState.inputValue}
 			placeholder={m.placeholder_input_chat()}
@@ -78,7 +78,7 @@
 						{((openModelSelect = onclick), "")}
 						<Button
 							variant="ghost"
-							class="text-sm text-foreground/50 hover:!bg-chat-action-hover"
+							class="text-foreground/50 hover:!bg-chat-action-hover text-sm"
 							{onclick}
 						>
 							{chatState.selectedModel?.name ?? m.text_button_select_model()}
@@ -93,8 +93,8 @@
 
 				<button
 					class={cn(
-						"flex size-9 items-center justify-center rounded-[10px] bg-chat-send-message-button text-foreground hover:!bg-chat-send-message-button/80",
-						"disabled:cursor-not-allowed disabled:bg-chat-send-message-button/50 disabled:hover:!bg-chat-send-message-button/50",
+						"bg-chat-send-message-button text-foreground hover:!bg-chat-send-message-button/80 flex size-9 items-center justify-center rounded-[10px]",
+						"disabled:bg-chat-send-message-button/50 disabled:hover:!bg-chat-send-message-button/50 disabled:cursor-not-allowed",
 					)}
 					onclick={handleSendMessage}
 				>

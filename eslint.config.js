@@ -43,7 +43,11 @@ export default ts.config(
 	...svelte.configs.recommended,
 	...svelte.configs.prettier,
 	{
-		files: ["packages/svelte-app/**/*.svelte", "packages/svelte-app/**/*.svelte.ts", "packages/svelte-app/**/*.svelte.js"],
+		files: [
+			"packages/svelte-app/**/*.svelte",
+			"packages/svelte-app/**/*.svelte.ts",
+			"packages/svelte-app/**/*.svelte.js",
+		],
 		languageOptions: {
 			parserOptions: {
 				projectService: true,

@@ -19,19 +19,19 @@
 	<Tooltip.Provider>
 		<Tooltip.Root>
 			<Tooltip.Trigger>
-				<CircleQuestionMark class="h-3 w-3 text-label-fg" />
+				<CircleQuestionMark class="text-label-fg h-3 w-3" />
 			</Tooltip.Trigger>
 
 			<Tooltip.Content
 				class={cn(
-					"rounded-[10px] border bg-overlay p-0 text-sm/6 text-overlay-foreground",
+					"bg-overlay text-overlay-foreground rounded-[10px] border p-0 text-sm/6",
 					className,
 				)}
 				side={tooltipPlacement}
 				arrowClasses="hidden"
 				sideOffset={5}
 			>
-				<div class="max-w-[300px] min-w-[200px] px-2.5 py-1.5 text-justify break-all hyphens-auto">
+				<div class="min-w-[200px] max-w-[300px] hyphens-auto break-all px-2.5 py-1.5 text-justify">
 					{tips}
 				</div>
 			</Tooltip.Content>

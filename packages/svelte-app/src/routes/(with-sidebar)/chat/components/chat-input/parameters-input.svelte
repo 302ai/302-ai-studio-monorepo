@@ -53,7 +53,7 @@
 			<LabelWithTips class="z-51" {label} {tips} tooltipPlacement="right" />
 		{/if}
 		<Input
-			class="h-7 w-20 border-border"
+			class="border-border h-7 w-20"
 			aria-invalid={!!errorMessage}
 			value={inputValue}
 			placeholder={m.placeholder_input()}
@@ -62,6 +62,6 @@
 	</div>
 
 	{#if errorMessage}
-		<div class="self-end text-xs text-destructive">{errorMessage}</div>
+		<div class="text-destructive self-end text-xs">{errorMessage}</div>
 	{/if}
 </div>

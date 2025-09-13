@@ -54,7 +54,7 @@
 <ContextMenu.Root>
 	<ContextMenu.Trigger
 		class={cn(
-			"relative flex h-provider-item w-full cursor-pointer items-center gap-provider-gap rounded-provider px-provider-x py-provider-y text-sm",
+			"h-provider-item gap-provider-gap rounded-provider px-provider-x py-provider-y relative flex w-full cursor-pointer items-center text-sm",
 			isActive
 				? "bg-tab-active text-tab-fg-active"
 				: "bg-tab-inactive text-tab-fg-inactive hover:bg-tab-hover",
@@ -66,13 +66,13 @@
 		aria-label={provider.name}
 	>
 		<!-- Icon -->
-		<div class="flex size-provider-icon shrink-0 items-center justify-center">
+		<div class="size-provider-icon flex shrink-0 items-center justify-center">
 			<ModelIcon modelName={provider.icon || provider.apiType} className="h-6 w-6" />
 		</div>
 
 		<!-- Content -->
 		<div class="min-w-0 flex-1">
-			<div class="truncate leading-tight font-medium">
+			<div class="truncate font-medium leading-tight">
 				{provider.name}
 			</div>
 			<div

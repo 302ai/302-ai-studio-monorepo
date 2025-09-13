@@ -12,6 +12,6 @@
 </script>
 
 <div class="flex h-full w-full flex-col items-center justify-center">
-	<CircleX class="h-8 w-8 text-destructive" />
-	<p class="mt-2 text-sm text-muted-foreground">{message}</p>
+	<CircleX class="text-destructive h-8 w-8" />
+	<p class="text-muted-foreground mt-2 text-sm">{message}</p>
 </div>

@@ -116,8 +116,8 @@
 
 <div class="flex flex-col gap-4 py-[18px]">
 	{#each shortcutSettings() as shortcut (shortcut.id)}
-		<div class="flex max-w-[528px] min-w-[528px] flex-col">
-			<Label class="mb-2 text-label-fg">
+		<div class="flex min-w-[528px] max-w-[528px] flex-col">
+			<Label class="text-label-fg mb-2">
 				{shortcut.isGroup
 					? m.settings_shortcut_tabSwitchingGroup()
 					: m[`settings_shortcut_${shortcut.action}`]()}
@@ -126,7 +126,7 @@
 			{#if shortcut.isGroup}
 				<div class="flex items-center gap-2">
 					<div
-						class="flex h-settings-item w-full items-center justify-between rounded-settings-item bg-settings-item-bg px-settings-item-x py-settings-item-y"
+						class="h-settings-item rounded-settings-item bg-settings-item-bg px-settings-item-x py-settings-item-y flex w-full items-center justify-between"
 					>
 						{#if shortcut.groupedShortcuts?.[0] && shortcut.groupedShortcuts[0].keys.length > 0}
 							{@const firstTabShortcut = shortcut.groupedShortcuts[0]}
@@ -149,7 +149,7 @@
 				<div class="flex items-center gap-2">
 					<Select.Root type="single">
 						<Select.Trigger
-							class="bg-setting text-setting-fg h-11 rounded-[10px] inset-ring-transparent transition-none hover:inset-ring-transparent"
+							class="bg-setting text-setting-fg inset-ring-transparent hover:inset-ring-transparent h-11 rounded-[10px] transition-none"
 						/>
 						<Select.Content>
 							{#each shortcut.options as option (option.id)}
@@ -186,7 +186,7 @@
 				/>
 			{/if}
 			{#if shortcut.hint}
-				<p class="mt-1 text-left text-xs text-settings-shortcut-hint">
+				<p class="text-settings-shortcut-hint mt-1 text-left text-xs">
 					{(m as unknown as Record<string, () => string>)[shortcut.hint]()}
 				</p>
 			{/if}

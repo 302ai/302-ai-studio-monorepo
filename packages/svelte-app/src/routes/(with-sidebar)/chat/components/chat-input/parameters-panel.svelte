@@ -6,7 +6,7 @@
 </script>
 
 <div class="w-[500px]">
-	<div class="flex flex-col gap-y-4 rounded-[10px] bg-background p-4">
+	<div class="bg-background flex flex-col gap-y-4 rounded-[10px] p-4">
 		<ParametersSlider
 			label={m.text_label_temperature()}
 			tips={m.title_temperature_tips()}

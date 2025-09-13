@@ -154,7 +154,7 @@
 		onValueChange={handleSliderChange}
 	/>
 
-	<div class="flex flex-1 flex-row text-xs text-muted-foreground">
+	<div class="text-muted-foreground flex flex-1 flex-row text-xs">
 		<span style="width: {offSegmentWidth}">{m.settings_off()}</span>
 		<span class="flex flex-row justify-between" style="width: {valueRangeWidth}">
 			<span>{min.toFixed(decimalPlaces)}</span>

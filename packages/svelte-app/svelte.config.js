@@ -18,11 +18,11 @@ const config = {
 		},
 		paths: {
 			base: "",
-			relative: true
+			relative: true,
 		},
 		prerender: {
-			entries: []
-		}
+			entries: [],
+		},
 	},
 };
 

@@ -84,7 +84,7 @@
 		>
 			{#if indicatorStyle.top && selectedIndex !== -1}
 				<div
-					class="absolute right-[-12px] z-10 w-[5px] rounded-none bg-primary transition-all duration-300 ease-in-out"
+					class="bg-primary absolute right-[-12px] z-10 w-[5px] rounded-none transition-all duration-300 ease-in-out"
 					style="top: {indicatorStyle.top}; height: {indicatorStyle.height};"
 					data-selected-indicator
 				></div>
@@ -96,7 +96,7 @@
 					bind:this={itemElements[index]}
 					href={item.path}
 					class={cn(
-						"flex w-full items-center rounded-lg px-settings-item-x py-settings-item-y text-sm font-medium whitespace-nowrap outline-hidden transition-colors",
+						"px-settings-item-x py-settings-item-y outline-hidden flex w-full items-center whitespace-nowrap rounded-lg text-sm font-medium transition-colors",
 						"hover:bg-hover-primary",
 						isSelected ? "text-accent-fg bg-accent" : "text-foreground",
 					)}

@@ -16,7 +16,7 @@
 	<div class="flex h-full items-center justify-center p-6">
 		{#if src}
 			<div class="flex w-full max-w-md flex-col items-center gap-y-8">
-				<div class="rounded-full bg-muted p-4">
+				<div class="bg-muted rounded-full p-4">
 					<Headphones class="h-10 w-10 " />
 				</div>
 

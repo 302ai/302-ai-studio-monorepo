@@ -28,7 +28,7 @@
 </script>
 
 <Dialog.Root open={isOpen} onOpenChange={onClose}>
-	<Dialog.Content class="w-fit max-w-[95vw] min-w-[60vw] gap-0 rounded-[10px] p-0">
+	<Dialog.Content class="w-fit min-w-[60vw] max-w-[95vw] gap-0 rounded-[10px] p-0">
 		<div
 			class="bg-chat-attachment-viewer flex items-center gap-2 rounded-t-[10px] border-b p-4 text-sm"
 		>

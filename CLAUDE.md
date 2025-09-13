@@ -58,6 +58,25 @@ pnpm --filter @302-ai-studio/svelte-app dev
 
 ### First Time Setup & Troubleshooting
 
+**Pre-commit Hooks Setup**
+
+The project uses pre-commit hooks for code quality and consistent commits. After cloning the repository, you MUST install the pre-commit hooks:
+
+```bash
+# Install pre-commit hooks (required for first time setup)
+pre-commit install
+pre-commit install --hook-type commit-msg
+```
+
+**Note**: If pre-commit hooks are not installed, commits will bypass code quality checks and conventional commit message validation. The hooks include:
+- Trailing whitespace removal and file end-of-line fixing
+- YAML/JSON validation and merge conflict detection
+- Svelte type checking with paraglide exclusions
+- Prettier code formatting for all supported file types
+- ESLint linting with auto-fixing
+- Message key sorting for i18n files
+- Conventional commit message validation with required scopes
+
 **Development Server Connection Issues**
 
 If you encounter `ERR_CONNECTION_REFUSED` errors when starting development:

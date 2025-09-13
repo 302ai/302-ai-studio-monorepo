@@ -27,5 +27,5 @@
 		}
 	},
 	"include": ["packages/*/src/**/*", "app/*/src/**/*"],
-	"exclude": ["node_modules", "**/dist", "**/build", "**/.svelte-kit"]
+	"exclude": ["node_modules", "**/dist", "**/build", "**/.svelte-kit", "**/paraglide"]
 }

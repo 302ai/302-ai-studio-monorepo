@@ -1,9 +1,18 @@
 {
-  "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "es5",
+  "useTabs": true,
+  "singleQuote": false,
+  "trailingComma": "all",
   "printWidth": 100,
-  "useTabs": false,
-  "endOfLine": "lf"
+  "semi": true,
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ],
+  "tailwindStylesheet": "./packages/svelte-app/src/app.css"
 }

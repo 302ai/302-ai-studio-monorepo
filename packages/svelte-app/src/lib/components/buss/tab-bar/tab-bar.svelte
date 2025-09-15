@@ -196,7 +196,7 @@
 		<div
 			class="flex shrink-0 items-center"
 			style="opacity: {buttonSpring.current.opacity}; transform: translateX({buttonSpring.current
-				.x + buttonBounceSpring.current.x}px);"
+				.x + buttonBounceSpring.current.x}px); -webkit-app-region: no-drag"
 		>
 			<Separator
 				orientation="vertical"

@@ -39,9 +39,20 @@
 
 	$effect(() => {
 		const currentPath = page.url.pathname;
+		console.log("Current path:", currentPath);
+	
 		const existingTab = tabs.find((tab) => tab.href === currentPath);
+			console.log("existingTab.href:", existingTab?.href);
+		console.log("eq:", currentPath === existingTab?.href);
 		if (existingTab) {
 			activeTabId = existingTab.id;
+		} else if (currentPath === "/") {
+			// Ensure home tab is active for root path
+			activeTabId = "home";
+			console.log("Home tab is active for root path");
+		} else {
+			// For unknown paths, redirect to home
+			goto("/");
 		}
 	});
 

@@ -22,14 +22,14 @@ repos:
         entry: bash -c 'pnpm exec prettier --write "$@"' --
         language: system
         files: \.(js|ts|svelte|json|yaml|yml|html|css|scss)$
-        exclude: '^(pnpm-lock\.yaml|.*\.lock|packages/svelte-app/src/lib/paraglide/.*|.*\.svelte-kit/.*|.*/build/.*|.*/dist/.*|.*/out/.*|node_modules/.*)$'
+        exclude: '^(pnpm-lock\.yaml|.*\.lock|packages/svelte-app/src/lib/paraglide/.*|.*\.svelte-kit/.*|.*/build/.*|.*/dist/.*|.*/out/.*|node_modules/.*|patches/.*)$'
 
       - id: eslint
         name: eslint
         entry: bash -c 'pnpm exec eslint --fix "$@"' --
         language: system
         files: \.(js|ts|svelte)$
-        exclude: '^(packages/svelte-app/src/lib/paraglide/.*|.*\.svelte-kit/.*|.*/build/.*|.*/dist/.*|.*/out/.*|node_modules/.*)$'
+        exclude: '^(packages/svelte-app/src/lib/paraglide/.*|.*\.svelte-kit/.*|.*/build/.*|.*/dist/.*|.*/out/.*|node_modules/.*|patches/.*)$'
 
       - id: sort-messages
         name: sort-messages

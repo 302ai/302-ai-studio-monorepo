@@ -7,6 +7,6 @@
 			"@ui/*": ["../../packages/ui/src/*"]
 		}
 	},
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "*.config.ts", "*.config.js"],
 	"exclude": ["node_modules", "dist"]
 }

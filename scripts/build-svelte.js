@@ -4,7 +4,7 @@ import { execSync } from "child_process";
 import { existsSync, rmSync, mkdirSync, cpSync } from "fs";
 import { join } from "path";
 
-const SVELTE_APP_DIR = "packages/svelte-app";
+const SVELTE_APP_DIR = "svelte-app";
 const SVELTE_BUILD_DIR = join(SVELTE_APP_DIR, "build");
 const ELECTRON_OUT_DIR = join("app", "electron", "out", "renderer");
 

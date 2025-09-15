@@ -26,6 +26,6 @@
 			"@302-ai-studio/shared/*": ["packages/shared/src/*"]
 		}
 	},
-	"include": ["packages/*/src/**/*", "app/*/src/**/*"],
+	"include": ["packages/*/src/**/*", "app/*/src/**/*", "app/*/*.config.ts", "app/*/*.config.js"],
 	"exclude": ["node_modules", "**/dist", "**/build", "**/.svelte-kit", "**/paraglide"]
 }

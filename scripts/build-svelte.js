@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
-import { readFileSync, writeFileSync, existsSync, rmSync, mkdirSync, cpSync } from "fs";
+import { existsSync, rmSync, mkdirSync, cpSync } from "fs";
 import { join } from "path";
 
 const SVELTE_APP_DIR = "packages/svelte-app";
@@ -36,26 +36,8 @@ try {
 	console.log("📁 Copying files to electron renderer...");
 	cpSync(SVELTE_BUILD_DIR, ELECTRON_OUT_DIR, { recursive: true });
 
-	// Step 5: Fix paths in HTML files for Electron's file:// protocol
-	console.log("🔧 Fixing paths for Electron file:// protocol...");
-	const htmlFiles = [
-		join(ELECTRON_OUT_DIR, "index.html"),
-		// Add other HTML files that might need fixing
-	];
-
-	htmlFiles.forEach((filePath) => {
-		if (existsSync(filePath)) {
-			console.log(`  Fixing paths in ${filePath}`);
-			let content = readFileSync(filePath, "utf8");
-
-			// Replace absolute /_app/ paths with relative ./_app/ paths
-			content = content.replace(/href="\/_app\//g, 'href="./_app/');
-			content = content.replace(/src="\/_app\//g, 'src="./_app/');
-			content = content.replace(/import\("\/_app\//g, 'import("./_app/');
-
-			writeFileSync(filePath, content, "utf8");
-		}
-	});
+	// Note: SvelteKit now generates relative paths natively with paths.relative: true
+	// No path fixing needed since build output already uses ./_app/ paths
 
 	console.log("🎉 SvelteKit build and integration completed successfully!");
 } catch (error) {

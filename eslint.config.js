@@ -39,21 +39,17 @@ export default ts.config(
 			},
 		},
 	},
-	// Svelte specific configuration for packages/svelte-app
+	// Svelte specific configuration for svelte-app
 	...svelte.configs.recommended,
 	...svelte.configs.prettier,
 	{
-		files: [
-			"packages/svelte-app/**/*.svelte",
-			"packages/svelte-app/**/*.svelte.ts",
-			"packages/svelte-app/**/*.svelte.js",
-		],
+		files: ["svelte-app/**/*.svelte", "svelte-app/**/*.svelte.ts", "svelte-app/**/*.svelte.js"],
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
 				extraFileExtensions: [".svelte"],
 				parser: ts.parser,
-				svelteConfig: "./packages/svelte-app/svelte.config.js",
+				svelteConfig: "./svelte-app/svelte.config.js",
 			},
 		},
 	},

@@ -138,7 +138,7 @@
 >
 	<!-- Tabs and controls section -->
 	<div
-		class="gap-tab-gap px-tabbar-x flex flex-1 min-w-0 items-center overflow-x-hidden"
+		class="gap-tab-gap px-tabbar-x flex min-w-0 flex-1 items-center overflow-x-hidden"
 		style="-webkit-app-region: drag"
 		use:dndzone={{
 			items: tabs,

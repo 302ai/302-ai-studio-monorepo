@@ -50,7 +50,7 @@
 		<div class="flex items-center">
 			<!-- Minimize button -->
 			<button
-				class="flex h-8 w-12 items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+				class="flex h-8 w-12 items-center justify-center transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
 				onclick={handleMinimize}
 				title="Minimize"
 			>
@@ -59,7 +59,7 @@
 
 			<!-- Maximize/Restore button -->
 			<button
-				class="flex h-8 w-12 items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+				class="flex h-8 w-12 items-center justify-center transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
 				onclick={handleMaximize}
 				title={isMaximized ? "Restore" : "Maximize"}
 			>
@@ -72,7 +72,7 @@
 
 			<!-- Close button -->
 			<button
-				class="flex h-8 w-12 items-center justify-center hover:bg-red-500 hover:text-white transition-colors"
+				class="flex h-8 w-12 items-center justify-center transition-colors hover:bg-red-500 hover:text-white"
 				onclick={handleClose}
 				title="Close"
 			>

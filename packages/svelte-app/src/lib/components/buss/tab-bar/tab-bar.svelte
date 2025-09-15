@@ -29,6 +29,7 @@
 	import { cn } from "$lib/utils";
 	import { animateButtonBounce } from "$lib/utils/animation";
 	import { ButtonWithTooltip } from "@/components/buss/button-with-tooltip";
+	import { WindowControls } from "@/components/buss/window-controls";
 	import { Plus } from "@lucide/svelte";
 	import { onDestroy } from "svelte";
 	import { dndzone, TRIGGERS } from "svelte-dnd-action";
@@ -131,11 +132,14 @@
 
 <div
 	class={cn("h-tabbar bg-tabbar-bg/50 flex w-full items-center border-b", className)}
+	style="-webkit-app-region: drag"
 	role="tablist"
 	aria-label={m.label_button_new_tab() ?? "Tab bar"}
 >
+	<!-- Tabs and controls section -->
 	<div
-		class="gap-tab-gap px-tabbar-x flex w-full min-w-0 items-center overflow-x-hidden"
+		class="gap-tab-gap px-tabbar-x flex flex-1 min-w-0 items-center overflow-x-hidden"
+		style="-webkit-app-region: drag"
 		use:dndzone={{
 			items: tabs,
 			flipDurationMs: 200,
@@ -159,6 +163,7 @@
 				class={cn("flex min-w-0 items-center", autoStretch && "flex-1 basis-0")}
 				data-id={tab.id}
 				role="presentation"
+				style="-webkit-app-region: no-drag"
 				aria-label={tab.title}
 				animate:flip={{ duration: 200 }}
 				in:scale={draggedElementId || isDndFinalizing
@@ -210,4 +215,7 @@
 			</ButtonWithTooltip>
 		</div>
 	</div>
+
+	<!-- Window controls on the right side -->
+	<WindowControls class="shrink-0" />
 </div>

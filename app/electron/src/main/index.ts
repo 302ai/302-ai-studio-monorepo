@@ -8,6 +8,7 @@ function createWindow(): void {
 		height: 800,
 		show: false,
 		autoHideMenuBar: true,
+		frame: false,
 		webPreferences: {
 			preload: join(__dirname, "../preload/index.mjs"),
 			sandbox: false,
@@ -50,6 +51,33 @@ app.whenReady().then(() => {
 	});
 
 	ipcMain.handle("ping", () => "pong");
+
+	// Window control handlers
+	ipcMain.handle("window:minimize", () => {
+		const window = BrowserWindow.getFocusedWindow();
+		window?.minimize();
+	});
+
+	ipcMain.handle("window:maximize", () => {
+		const window = BrowserWindow.getFocusedWindow();
+		if (window?.isMaximized()) {
+			window.unmaximize();
+		} else {
+			window?.maximize();
+		}
+	});
+
+	ipcMain.handle("window:close", () => {
+		const window = BrowserWindow.getFocusedWindow();
+		window?.close();
+	});
+
+	ipcMain.handle("window:isMaximized", () => {
+		const window = BrowserWindow.getFocusedWindow();
+		return window?.isMaximized() ?? false;
+	});
+
+	ipcMain.handle("platform", () => process.platform);
 
 	createWindow();
 
